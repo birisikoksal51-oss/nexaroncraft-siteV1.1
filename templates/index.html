@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexaronCraft | Resmi Web Sitesi</title>
-    
-    <!-- YOUTUBE GİBİ SEKMEDE LOGONUN GÖZÜKMESİNİ SAĞLAYAN KRİTİK FA-VICON SATIRI -->
-    <link rel="icon" type="image/png" href="https://allorigins.win">
-    
+    <link rel="icon" type="image/png" href="https://prodia.rocks">
     <style>
         :root {
             --primary: #00d2d3;
@@ -21,30 +18,25 @@
             --amber: #feca57;
             --green: #1dd1a1;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
         body { 
             background: linear-gradient(rgba(7, 12, 18, 0.85), rgba(7, 12, 18, 0.92)), 
-                        url('https://allorigins.win') no-repeat center center;
+                        url('https://prodia.rocks') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
             color: var(--text); 
             overflow-x: hidden; 
         }
-
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(7, 12, 18, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); backdrop-filter: blur(5px); }
         .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-img { width: 35px; height: 34px; border-radius: 6px; border: 1px solid var(--primary); }
+        .logo-img { width: 35px; height: 35px; border-radius: 6px; border: 1px solid var(--primary); }
         .logo { font-size: 22px; font-weight: 800; color: var(--primary); text-transform: uppercase; text-shadow: 0 0 10px rgba(0, 210, 211, 0.3); }
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--primary); }
-        
         .user-profile-nav { background: var(--secondary); padding: 5px 15px; border-radius: 20px; border: 1px solid var(--primary); font-size: 0.9rem; }
         .user-profile-nav a { color: var(--danger); text-decoration: none; margin-left: 10px; font-weight: bold; }
-
         .hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 20px 40px 20px; }
         .main-logo-hero { width: 180px; height: 180px; border-radius: 20px; margin-bottom: 20px; border: 3px solid var(--primary); box-shadow: 0 0 30px rgba(0, 210, 211, 0.4); }
         .status-badge { background: rgba(0, 0, 0, 0.6); padding: 8px 25px; border-radius: 30px; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px; border: 1px solid rgba(0, 210, 211, 0.3); }
@@ -52,38 +44,30 @@
         .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; }
         .hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(0, 210, 211, 0.4); }
         .hero p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 20px; max-width: 600px; }
-        
         .announcement { color: var(--amber); font-size: 1.4rem; font-weight: 800; margin-bottom: 35px; text-transform: uppercase; animation: pulse 2s infinite; letter-spacing: 1px; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.04); text-shadow: 0 0 20px rgba(254, 202, 87, 0.5); } 100% { transform: scale(1); } }
         .ip-box { background: var(--secondary); padding: 15px 35px; border-radius: 50px; border: 2px solid var(--primary); cursor: pointer; font-size: 1.4rem; font-weight: 700; }
-
         .market-section { padding: 60px 8%; background: rgba(9, 16, 24, 0.93); text-align: center; border-top: 1px solid rgba(0, 210, 211, 0.3); backdrop-filter: blur(10px); }
         .market-section h2 { font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; }
         .market-section h2 span { color: var(--primary); }
         .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top:30px; }
-        
         .market-card { background: var(--card-bg); border-radius: 14px; padding: 30px 20px; border: 1px solid rgba(0, 210, 211, 0.1); position: relative; overflow: hidden; transition: 0.3s; }
         .market-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--primary); }
         .market-card.vip::before { background: #ff9f43; }
         .market-card.mvp::before { background: #1dd1a1; }
         .market-card.nexaron::before { background: #00d2d3; }
         .market-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
-        
         .item-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
         .item-features { list-style: none; margin-bottom: 25px; color: var(--text-muted); font-size: 0.95rem; line-height: 2; text-align: left; padding-left: 15px; }
         .item-price { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; color: #fff; }
         .item-price span { font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; margin-right: 8px; }
-
         .content-section { padding: 60px 8%; display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
         @media (max-width: 968px) { .content-section { grid-template-columns: 1fr; } }
-        
         .box { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid rgba(0, 210, 211, 0.1); border-top: 4px solid var(--primary); backdrop-filter: blur(10px); }
         .box h2 { font-size: 1.6rem; margin-bottom: 20px; text-transform: uppercase; color: var(--primary); }
-        
         .leaderboard-table { width: 100%; border-collapse: collapse; text-align: left; }
         .leaderboard-table th, .leaderboard-table td { padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .rank-badge { background: var(--secondary); padding: 2px 8px; border-radius: 5px; font-weight: bold; }
-
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; color: var(--text-muted); font-size: 0.9rem; text-align: left; }
         .form-group input { width: 100%; padding: 10px; background: var(--dark); border: 1px solid rgba(0, 210, 211, 0.2); border-radius: 6px; color: white; }
@@ -96,7 +80,7 @@
 <body>
     <nav>
         <div class="logo-container">
-            <img src="https://allorigins.win" class="logo-img" alt="Logo">
+            <img src="https://prodia.rocks" class="logo-img" alt="Logo">
             <div class="logo">Nexaron<span>Craft</span></div>
         </div>
         <div class="nav-right">
@@ -109,9 +93,7 @@
     </nav>
 
     <section class="hero">
-        <!-- Büyük Efsanevi Logo -->
-        <img src="https://allorigins.win" class="main-logo-hero" alt="Nexaron Logo">
-        
+        <img src="https://prodia.rocks" class="main-logo-hero" alt="Nexaron Logo">
         <div class="status-badge"><div class="status-dot"></div><span>ÇEVRİMİÇİ: <strong style="color: var(--danger);">0 OYUNCU</strong></span></div>
         <h1>Madenleri Kaz, <br><span>Kutunun Ağası Ol!</span></h1>
         <p>Gelişmiş Python altyapısı, özel madenleri ve adil kutu PvP rütbe ekosistemi sizi bekliyor.</p>
@@ -119,7 +101,6 @@
         <div class="ip-box"><span id="server-ip">açılmadı</span></div>
     </section>
 
-    <!-- Yenilenen VIP Mağazası -->
     <section class="market-section" id="market">
         <h2>Sunucu <span>VIP Mağazası</span></h2>
         <div class="market-grid">
@@ -127,10 +108,15 @@
                 <div class="item-title" style="color: #ff9f43;">BRONZ VIP</div>
                 <ul class="item-features"><li>• Başlangıç VIP Kiti</li><li>• Chat'te [VIP] Tagı</li><li>• +%10 Maden Kazanma Şansı</li></ul>
                 <div class="item-price">45 TL</div>
-                <!-- İtemSatış Mağazası Açıldığında href kısmına linki yapıştırırsın -->
                 <a href="https://itemsatis.com" target="_blank" style="text-decoration:none;"><button class="btn" style="background: #ff9f43; color: #000;">Bakiye Yükle / Satın Al</button></a>
             </div>
             <div class="market-card mvp">
                 <div class="item-title" style="color: #1dd1a1;">ZÜMRÜT MVP</div>
                 <ul class="item-features"><li>• Gelişmiş MVP Kiti</li><li>• Chat'te Yeşil [MVP] Tagı</li><li>• Dolu Sunucuya Giriş Önceliği</li><li>• Özel Parçacık Efektleri</li></ul>
                 <div class="item-price"><span>120 TL</span> 85 TL</div>
+                <a href="https://itemsatis.com" target="_blank" style="text-decoration:none;"><button class="btn" style="background: #1dd1a1; color: #000;">Bakiye Yükle / Satın Al</button></a>
+            </div>
+            <div class="market-card nexaron">
+                <div class="item-title" style="color: #00d2d3;">NEXARON KINGS</div>
+                <ul class="item-features"><li>• Sınırsız Edit Kit Erişimi</li><li>• Chat'te Parlak [NEXARON] Tagı</li><li>• 3 Adet Efsanevi Kasa Anahtarı</li><li>• Uçma yetkisi (/fly)</li></ul>
+                <div class="item-price">150 TL</div>
