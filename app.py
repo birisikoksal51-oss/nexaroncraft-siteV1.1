@@ -2,9 +2,6 @@ import os
 import hashlib
 from flask import Flask, render_template_string, request, session, redirect, url_for
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-html_path = os.path.join(current_dir, 'templates', 'index.html')
-
 app = Flask(__name__)
 app.secret_key = "nexaron_secure_crypto_shield_2026_key"
 
@@ -19,17 +16,18 @@ oyuncular = {
 
 @app.route('/')
 def home():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    html_path = os.path.join(current_dir, 'templates', 'index.html')
+    
     with open(html_path, 'r', encoding='utf-8') as file:
         content = file.read()
         
-    # 1. Liderlik Tablosunu El ile Oluşturma
     lider_html = ""
     sirali = sorted(oyuncular.items(), key=lambda x: x[1]['oldurme'], reverse=True)[:10]
     for sira, (isim, veri) in enumerate(sirali, 1):
         lider_html += f"<tr><td><span class='rank-badge'>#{sira}</span></td><td><strong>{isim}</strong></td><td style='color:var(--primary);'>{veri['rutbe']}</td><td style='color:var(--green); font-weight:bold;'>{veri['oldurme']}</td></tr>"
     content = content.replace("<!-- LIDERLIK_TABLOSU -->", lider_html)
 
-    # 2. Üst Menü Profil ve Canlı Bakiye Alanı
     if 'kullanici_adi' in session:
         kullanici = session['kullanici_adi']
         v = oyuncular[kullanici]
@@ -37,7 +35,6 @@ def home():
     else:
         content = content.replace("<!-- PROFILE_ALANI -->", "")
 
-    # 3. Giriş / Gelişmiş Ön Kayıt Paneli
     if 'kullanici_adi' in session:
         kullanici = session['kullanici_adi']
         v = oyuncular[kullanici]
