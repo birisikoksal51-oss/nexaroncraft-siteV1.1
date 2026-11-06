@@ -6,7 +6,7 @@
     <title>NexaronCraft | Resmi Web Sitesi</title>
     <style>
         :root {
-            --primary: #00d2d3;
+            --primary: #00d2d3; /* Parlak Mavi-Yeşil Neon Camgöbeği */
             --primary-hover: #0abde3;
             --secondary: #0a222d; 
             --dark: #040a10; 
@@ -69,6 +69,7 @@
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; color: var(--text-muted); font-size: 0.9rem; text-align: left; }
         .form-group input { width: 100%; padding: 10px; background: var(--dark); border: 1px solid rgba(0, 210, 211, 0.2); border-radius: 6px; color: white; font-size: 1rem; }
+        .form-group input:focus { border-color: var(--primary); outline: none; }
         .btn { width: 100%; padding: 12px; background: var(--primary); border: none; border-radius: 6px; color: var(--dark); font-weight: 700; cursor: pointer; text-transform: uppercase; }
         .switch-form-text { font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 15px; cursor: pointer; }
         .switch-form-text span { color: var(--primary); text-decoration: underline; }
@@ -84,10 +85,10 @@
             <ul class="nav-links">
                 <li><a href="#market">Mağaza</a></li>
                 <li><a href="#on-kayit-alani">Ön Kayıt Ol</a></li>
-                <li><a href="https://discord.gg" target="_blank">Discord</a></li>
+                <li><a href="https://discord.gg/mRDhc8VgQ" target="_blank">Discord</a></li>
             </ul>
             {% if kullanici_adi %}
-            <div class="user-profile-nav">💰 Bakiye: <strong style="color:var(--amber);">{#{ oyuncu.bakiye }#} TL</strong> | 🛠️ test sürümü, <strong>admin</strong>! <a href="/cikis">Oturumu Kapat</a></div>
+            <div class="user-profile-nav">💰 Bakiye: <strong style="color:var(--amber);">{{ bakiye }} TL</strong> | 🛠️ test sürümü, <strong>admin</strong>! <a href="/cikis">Oturumu Kapat</a></div>
             {% endif %}
         </div>
     </nav>
@@ -132,5 +133,3 @@
 
     <section class="content-section" id="on-kayit-alani">
         <div class="box">
-            <h2>🏆 TOP 10 - PvP Liderleri</h2>
-            <table class="leaderboard-table">
